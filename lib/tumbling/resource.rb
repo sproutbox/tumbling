@@ -3,8 +3,8 @@ module Tumbling
     include HTTParty
     format :xml
 
-    def self.all
-      get_resources(type)
+    def self.all(query = {})
+      get_resources(type, query)
     end
 
     def type
@@ -16,6 +16,10 @@ module Tumbling
     end
 
     private
+
+    def self.parse_time(time)
+      Time.parse(time)
+    end
 
     def initialize(hash = {})
       hash.each do |key, value|
@@ -42,8 +46,7 @@ module Tumbling
         object.build(result)
     end
 
-    def self.get_resources(type)
-      query = {}
+    def self.get_resources(type, query = {})
       query.merge!({ :type => type }) unless type.nil?
 
       results = get '/api/read', :query => query

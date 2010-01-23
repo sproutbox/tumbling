@@ -1,3 +1,4 @@
+require 'time'
 require 'httparty'
 
 module Tumbling
@@ -21,5 +22,3 @@ module Tumbling
     end
   end
 end
-
-Tumbling.blog = "proposable"

@@ -17,7 +17,7 @@ module Tumbling
       {
         :id     => attributes['id'],
         :url    => attributes['url_with_slug'],
-        :date   => attributes['date_gmt'],
+        :date   => parse_time(attributes['date_gmt']),
         :format => attributes['format'],
         :slug   => attributes['slug'],
         :body   => attributes['audio_player'],
