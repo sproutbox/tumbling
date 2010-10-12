@@ -2,7 +2,7 @@ require 'time'
 require 'httparty'
 
 module Tumbling
-
+  autoload :Version,  'tumbling/version'
   autoload :Resource, 'tumbling/resource'
   autoload :Post,     'tumbling/post'
 #  quote, photo, link, chat, video, or audio
